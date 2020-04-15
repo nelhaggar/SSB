@@ -1,0 +1,59 @@
+Release: SSB v6 GA
+Released: 27 July 2018 
+
+****************************************
+OVERVIEW OF RELEASE
+****************************************
+
+Version 6 of the Services Standard Build (SSB) contains a number of new features, fixes
+and enhancements.
+
+****************************************
+NEW TO THIS RELEASE:
+****************************************
+
+ - The OWASP Dependency Check tool, which can report on known vulnerabilities in third-
+   party libraries, is now included in the SSB.  This self-updating tool can check the 
+   libraries that ship with IdentityIQ as well as those which are added to the build by
+   implementers.
+ - Ability to manage the deployment of site-specific encryption keys as part of the
+   build process.
+ - Support for 'includefiles' functionality which allows specifying the XML files that
+   should be included in a 'subset build'.  This is useful for times when it is not
+   necessary to deploy a full build but just update specific XML objects.
+ - Enhancements to SSB Build Checks:
+      Detect deprecations in non-public APIs
+      Handle nested imports in BeanShell when detecting deprecations
+      Check for workflows which have trace enabled
+      Reduced console logging for improved presentation
+ - Expansion of efixes in the order they were created to avoid conflicts when two
+   different versions of the same file are included in separate efixes.
+ - 'Secret' target.properties for keeping sensitive token values separate from the main
+   target.properties file so they can be stored outside of the code repository.
+
+Please refer to the SSB User Guide for more information on the above features.
+
+Bugs fixed since SSB v5 GA
+
+ - MySQL 'warnings' and 'nowarning' statements were causing createdb failures in 
+   IdentityIQ 7.3 (SSDBUGS-185)
+ - Potential XML Entity Expansion vulnerability in the SSB Build Checks fixed 
+   (SSDBUGS-178)
+
+****************************************
+NOTES
+****************************************
+
+JDK version 6 is no longer supported in the SSB/SSD.  Please use JDK 7 or 8.
+
+To assist the SailPoint Support team, the version of the SSB or SSD used to build 
+IdentityIQ can now be seen by accessing the ServicesStandardVersion.html file at the root
+of the application (e.g. http://servername:8080/ServicesStandardVersion.html).  This
+information is taken from these release notes, so please do not delete this file or move
+it from its current location, and do not delete the html file that is generated during the
+build process.  The page also includes a timestamp indicating the last time the build was
+executed.
+
+
+The SSB is part of the Services Standard Deployment (SSD).  For more details please visit:
+https://community.sailpoint.com/community/identityiq/sailpoint-toolkits/standard-services-deployment
